@@ -29,7 +29,7 @@ router.post('/register', async (req, res) => {
         if (error.code === 11000 && error.keyPattern && error.keyPattern.mobilenumber) {
             return res.status(400).json({ error: 'Duplicate Mobile Number. Please choose a different Mobile Number.' });
         } else {
-            return res.status(500).json({ error: 'Internal Server Error' });
+            return res.status(500).json({ error: error });
         }
     }
 });
